@@ -1,5 +1,5 @@
 //elena-efimova
-//var binaryNumber = new String();
+
 
 
 function binaryToDec(binaryNumber){
