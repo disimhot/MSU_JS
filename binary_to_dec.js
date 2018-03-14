@@ -1,22 +1,20 @@
 //elena-efimova
 
-
-
-function binaryToDec(binaryNumber){
-    var c = 0;
-    for(var i = 0; i<binaryNumber.length; i++){
-        if (binaryNumber[i]==0) {
-            c += Math.pow(2,i);
-        }else if(binaryNumber[i]==1){
-            c += Math.pow(2,i);
-        } else {
-            console.log('Your number is undefined');
-            break;
-            }
-        }
+function binaryToDec(string){
+    let arr = string.split('');
+    if (!arr.every(checkNumber)){
+        return;
+    }
+    let c = 0;
+    arr.forEach(function (value, i, array) {c+=Math.pow(2,array.length-i-1)*value});
     console.log(c);
-
+    return c;
 }
 
-binaryToDec("101001");
+
+function checkNumber(element) {
+    if(element=="1"|| element=="0") return true;
+}
+
+binaryToDec("ij");
 
