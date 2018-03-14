@@ -1,8 +1,8 @@
 //elena-efimova
 
 //Хранение элемента и указание на следующий
-function Data(number) {
-    this.number = number;
+function Node(value) {
+    this.value = number;
     this.next = null;
 }
 
