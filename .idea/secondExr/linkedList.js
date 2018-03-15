@@ -7,8 +7,14 @@ function Node(value) {
 }
 
 function add(value) {
-    let element = new Data(value);
+    let element = new Node(value);
+    let length = 0;
 
+    let lastElement;
+    let firstElement;
+
+    //Пустой список
+    if()
 
     
 }
