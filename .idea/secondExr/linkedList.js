@@ -7,7 +7,13 @@ function Node(value) {
 }
 
 function convertToLinkedList(number) {
-
+    if(!parseInt(number,10)){
+        console.log("В JavaScript нет представления для введенного числа, либо число с экспонентой. Создан пустой список.");
+        return;
+    }else{
+        let arr = number.toString().split('');
+        console.log(arr);
+    }
 }
 
 function add(number) {
@@ -35,4 +41,4 @@ function add(number) {
     
 }
 
-add(123);
+convertToLinkedList(212312.3123);
