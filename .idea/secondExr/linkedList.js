@@ -6,8 +6,12 @@ function Node(value) {
     this.next = null;
 }
 
-function add(value) {
-    let element = new Node(value);
+function convertToLinkedList(number) {
+
+}
+
+function add(number) {
+    let element = new Node(number);
     let length = 0;
 
     let lastElement;
@@ -15,7 +19,7 @@ function add(value) {
 
     //Пустой список
     if(!Node){
-        firstElement = element;
+        this.value = number
         length++;
         return element;
     }

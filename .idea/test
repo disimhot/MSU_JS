@@ -111,7 +111,7 @@ LinkedList.prototype.plus = function(list) {
     return new LinkedList(String(Number(getSum(this.first)) + Number(getSum(list.first))).split('').reverse().join(''));
 };
 
-let listFirst = new LinkedList('243');
+/*let listFirst = new LinkedList('243');
 let listSecond = new LinkedList('564');
 listFirst.plus(listSecond).printList();//--->  '708'
 listFirst = new LinkedList('183');
@@ -128,4 +128,6 @@ list.removeAll(8);
 list.removeAll(7);
 list.removeByElement(list.get(5));
 list.printList();
-console.log("Размер списка:" + list.size);
+console.log("Размер списка:" + list.size);*/
+
+LinkedList('13213').printList();
