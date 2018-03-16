@@ -2,7 +2,7 @@
 
 //Хранение элемента и указание на следующий
 function Node(value) {
-    this.value = number;
+    this.value = value;
     this.next = null;
 }
 
@@ -14,7 +14,21 @@ function add(value) {
     let firstElement;
 
     //Пустой список
-    if()
+    if(!Node){
+        firstElement = element;
+        length++;
+        return element;
+    }
+    //Непустой список
+    while (element.next){
+        lastElement = element.next;
+    }
 
+    element.next = lastElement;
+    length++;
+    console.log(element);
+    return element;
     
 }
+
+add(123);
