@@ -4,41 +4,52 @@
 function Node(value) {
     this.value = value;
     this.next = null;
+
+    this.add = function (digit){
+        if(this.next == null){
+            this.next = new Node(digit);
+        }
+        else {this.next.add(digit); }
+    }
 }
 
-function convertToLinkedList(number) {
+function LinkedList(number) {
+    this.root = null;
+
     if(!parseInt(number,10)){
-        console.log("В JavaScript нет представления для введенного числа, либо число с экспонентой. Создан пустой список.");
+        console.log("В JavaScript нет представления для введенного числа. Создан пустой список.");
         return;
-    }else{
-        let arr = number.toString().split('');
-        console.log(arr);
+    }else {
+        let arr = number.toString().split('').map(function (value) {
+            return new Node(value);
+        });
+        for (var i = 0; i < arr.length; i++) {
+            if (i < arr.length - 1) {
+                arr[i].next = arr[i + 1];
+            }
+        }
+        this.root = arr[0];
+    }
+    //функция как аттрибут функции LinkedList
+    this.add = function (digit){
+        if(this.root == null){
+            this.root = new Node(digit);
+        }
+        else {this.root.add(digit); }
+    };
+
+    this.print = function () {
+        let cursor = this.root;
+        console.log("List:");
+        while(cursor != null){
+            console.log("\t"+cursor.value);
+            cursor = cursor.next;
+        }
+
     }
 }
 
-function add(number) {
-    let element = new Node(number);
-    let length = 0;
 
-    let lastElement;
-    let firstElement;
-
-    //Пустой список
-    if(!Node){
-        this.value = number
-        length++;
-        return element;
-    }
-    //Непустой список
-    while (element.next){
-        lastElement = element.next;
-    }
-
-    element.next = lastElement;
-    length++;
-    console.log(element);
-    return element;
-    
-}
-
-convertToLinkedList(212312.3123);
+let list = new LinkedList(12131);
+list.add(5);
+list.print();
