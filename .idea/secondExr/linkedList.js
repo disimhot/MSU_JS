@@ -11,6 +11,15 @@ function Node(value) {
         }
         else {this.next.add(digit); }
     }
+    this.search = function(digit) {
+        if (this.value == digit) {
+            return this;
+        }else if (this.next != null) {
+           return this.next.search(digit);
+        }
+        return null;
+    }
+
 }
 
 function LinkedList(number) {
@@ -30,14 +39,14 @@ function LinkedList(number) {
         }
         this.root = arr[0];
     }
-    //функция как аттрибут функции LinkedList
+    //Функция как атрибут функции LinkedList
     this.add = function (digit){
         if(this.root == null){
             this.root = new Node(digit);
         }
         else {this.root.add(digit); }
     };
-
+    //Печать значений
     this.print = function () {
         let cursor = this.root;
         console.log("List:");
@@ -45,11 +54,31 @@ function LinkedList(number) {
             console.log("\t"+cursor.value);
             cursor = cursor.next;
         }
+    }
+    //Поиск значений
+    this.search = function (digit) {
+        if(this.root != null){
+           return this.root.search(digit);
+        }
+        return null;
+    }
+
+    //Удаление значения
+    this.delete = function(digit){
 
     }
+
 }
 
 
 let list = new LinkedList(12131);
 list.add(5);
 list.print();
+
+list.add(5);
+list.print();
+
+let found = list.search("2");
+
+if (found == null){console.log('Число не было найдено в списке. Попробуйте еще раз');
+} else{console.log('Число ' + found.value + ' было найдено в списке')};
