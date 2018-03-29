@@ -19,6 +19,14 @@ function Node(value) {
         }
         return null;
     }
+    this.delete = function (digit) {
+        if (this.value == digit){
+            while (this.next != null){
+            this.value = this.next.value;
+            }
+
+        } else{ this.next.delete(digit);}
+    }
 
 }
 
@@ -65,20 +73,22 @@ function LinkedList(number) {
 
     //Удаление значения
     this.delete = function(digit){
-
+        if(this.root != null){
+            return this.root.delete(digit);
+        } else{return;}
     }
 
 }
 
 
-let list = new LinkedList(12131);
+let list = new LinkedList(123189);
 list.add(5);
+list.add(100);
 list.print();
 
-list.add(5);
-list.print();
-
-let found = list.search("2");
-
+let found = list.search('1');
 if (found == null){console.log('Число не было найдено в списке. Попробуйте еще раз');
 } else{console.log('Число ' + found.value + ' было найдено в списке')};
+
+list.delete(8);
+list.print();
