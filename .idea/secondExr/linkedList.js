@@ -20,12 +20,12 @@ function Node(value) {
         return null;
     }
     this.delete = function (digit) {
-        if (this.value == digit){
-            while (this.next != null){
-            this.value = this.next.value;
-            }
-
-        } else{ this.next.delete(digit);}
+        if(this.next != null){
+            if(this.next.value == digit){
+                this.next = this.next.next;
+                return true;
+            } else{ return this.next.delete(digit);}
+        } else{return false;}
     }
 
 }
@@ -35,7 +35,6 @@ function LinkedList(number) {
 
     if(!parseInt(number,10)){
         console.log("В JavaScript нет представления для введенного числа. Создан пустой список.");
-        return;
     }else {
         let arr = number.toString().split('').map(function (value) {
             return new Node(value);
@@ -74,14 +73,105 @@ function LinkedList(number) {
     //Удаление значения
     this.delete = function(digit){
         if(this.root != null){
-            return this.root.delete(digit);
-        } else{return;}
+            if(this.root.value == digit){
+                this.root = this.root.next;
+                return true;
+            } else{ return this.root.delete(digit);}
+        } else{return false;}
     }
 
+    this.copy = function () {
+        let linkedList = new LinkedList();
+        if (this.root != null) {
+            let cursor = this.root;
+            do {
+                this.add(cursor.value);
+                cursor = cursor.next;
+            } while (cursor != null);
+        }
+        return linkedList;
+    }
+
+    //Реверс LinkedList
+    this.reverse = function () {
+
+        let linkedList = new LinkedList();
+        if (this.root != null) {
+
+            let cursor = this.root;
+            do {
+                let current = new Node();
+                current.value = cursor.value;
+                if (linkedList.root == null) {
+                    current.next = null;
+                    linkedList.root = current;
+                } else {
+                    current.next = linkedList.root;
+                    linkedList.root = current;
+                }
+                cursor = cursor.next;
+            } while (cursor != null);
+        }
+        return linkedList;
+    }
+}
+
+function pair(left, right) {
+
+    if(left == null){this.left = 0;
+    }  else{this.left = left.value;}
+
+    if(right == null){this.right = 0;
+    }  else{this.right = right.value;}
+
+    this.sum = function() {return this.right+this.left;}
 }
 
 
-let list = new LinkedList(123189);
+function sum(left, right) {
+
+    if (left == null && right == null)return null;
+    if (left == null || left.root == null) return right.copy(); //возврат копии для возможностей изменения c
+    if (right == null || right.root == null) return left.copy();
+
+
+    let result = new LinkedList();
+    let fraction = 0;
+
+    let leftCursor = left.root;
+    let rightCursor = right.root;
+
+    let stack = [];
+
+    do{
+        let element = new pair(leftCursor, rightCursor);
+        stack.push(element);
+        leftCursor = leftCursor.next;
+        rightCursor = rightCursor.next;
+    }while(leftCursor != null && rightCursor != null);
+
+    stack.forEach(function (value){
+        let i = stack.pop();
+        let sum = i.sum();
+
+        if(sum > 10){
+            fraction = ((left.root.value + right.root.value)%10);
+        } else{fraction = 0;}
+
+        sum = i.sum() + fraction;
+        result.add(sum);
+
+        if(fraction != 0){
+            result.add(fraction);
+        }
+    })
+
+    return result.reverse();
+}
+
+
+/*let list = new LinkedList(12345678);
+
 list.add(5);
 list.add(100);
 list.print();
@@ -90,5 +180,20 @@ let found = list.search('1');
 if (found == null){console.log('Число не было найдено в списке. Попробуйте еще раз');
 } else{console.log('Число ' + found.value + ' было найдено в списке')};
 
-list.delete(8);
+list.delete(90);
 list.print();
+
+let reversedList = list.reverse();
+reversedList.print();*/
+
+
+let a = new LinkedList(123).reverse();
+a.print();
+let b = new LinkedList(283).reverse();
+b.print();
+
+let c = sum(a, b);
+c.print();
+
+
+
