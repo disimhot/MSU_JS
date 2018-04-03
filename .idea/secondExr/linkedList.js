@@ -1,6 +1,6 @@
 //elena-efimova
-
 //Хранение элемента и указание на следующий
+
 function Node(value) {
     this.value = value;
     this.next = null;
@@ -124,7 +124,7 @@ function pair(left, right) {
     if(right == null){this.right = 0;
     }  else{this.right = right.value;}
 
-    this.sum = function() {return this.right+this.left;}
+    this.sum = function() {return parseInt(this.right) + parseInt(this.left);}
 }
 
 
@@ -151,6 +151,7 @@ function sum(left, right) {
     }while(leftCursor != null && rightCursor != null);
 
     stack.forEach(function (value){
+
         let i = stack.pop();
         let sum = i.sum();
 
@@ -158,13 +159,13 @@ function sum(left, right) {
             fraction = ((left.root.value + right.root.value)%10);
         } else{fraction = 0;}
 
-        sum = i.sum() + fraction;
+        //sum = i.sum() + fraction;
         result.add(sum);
+        /*        if(fraction != 0){
+                    result.add(fraction);
+                }*/
 
-        if(fraction != 0){
-            result.add(fraction);
-        }
-    })
+    });
 
     return result.reverse();
 }
@@ -187,9 +188,9 @@ let reversedList = list.reverse();
 reversedList.print();*/
 
 
-let a = new LinkedList(123).reverse();
+let a = new LinkedList(3211).reverse();
 a.print();
-let b = new LinkedList(283).reverse();
+let b = new LinkedList(1334).reverse();
 b.print();
 
 let c = sum(a, b);

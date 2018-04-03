@@ -17,4 +17,4 @@ function checkNumber(element) {
 }
 
 binaryToDec("ij");
-
+binaryToDec("10101");
