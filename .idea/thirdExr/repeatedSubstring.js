@@ -7,7 +7,8 @@ function getMaxCountRepeats(string) {
         let repeat = '';
         let k;
         for(i= 0; i < string.length; i++){
-            repeat = repeat + string[i];
+
+            repeat += string[i];
             let array = string.split(repeat);
             k = array.length-1;
 

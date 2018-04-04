@@ -33,9 +33,7 @@ function Node(value) {
 function LinkedList(number) {
     this.root = null;
 
-    if(!parseInt(number,10)){
-        console.log("В JavaScript нет представления для введенного числа. Создан пустой список.");
-    }else {
+    if(parseInt(number,10)){
         let arr = number.toString().split('').map(function (value) {
             return new Node(value);
         });
@@ -46,6 +44,7 @@ function LinkedList(number) {
         }
         this.root = arr[0];
     }
+
     //Функция как атрибут функции LinkedList
     this.add = function (digit){
         if(this.root == null){
@@ -116,24 +115,21 @@ function LinkedList(number) {
     }
 }
 
-function pair(left, right) {
 
-    if(left == null){this.left = 0;
-    }  else{this.left = left.value;}
-
-    if(right == null){this.right = 0;
-    }  else{this.right = right.value;}
-
-    this.sum = function() {return parseInt(this.right) + parseInt(this.left);}
-}
 
 
 function sum(left, right) {
 
-    if (left == null && right == null)return null;
-    if (left == null || left.root == null) return right.copy(); //возврат копии для возможностей изменения c
-    if (right == null || right.root == null) return left.copy();
+    function pair(left, right) {
 
+        if(left == null){this.left = 0;
+        }  else{this.left = left.value;}
+
+        if(right == null){this.right = 0;
+        }  else{this.right = right.value;}
+
+        this.sum = function() {return parseInt(this.right) + parseInt(this.left);}
+    }
 
     let result = new LinkedList();
     let fraction = 0;
@@ -148,25 +144,27 @@ function sum(left, right) {
         stack.push(element);
         leftCursor = leftCursor.next;
         rightCursor = rightCursor.next;
-    }while(leftCursor != null && rightCursor != null);
+    }while(leftCursor != null || rightCursor != null);
 
     stack.forEach(function (value){
 
-        let i = stack.pop();
-        let sum = i.sum();
+        let fin;
+        let element = value.sum() + fraction;
 
-        if(sum > 10){
-            fraction = ((left.root.value + right.root.value)%10);
-        } else{fraction = 0;}
+        if(element >= 10){
+            fin = element%10;
+            fraction = parseInt(element/10);
+        }else{
+            fin = element;
+            fraction = 0;
+        }
 
-        //sum = i.sum() + fraction;
-        result.add(sum);
-        /*        if(fraction != 0){
-                    result.add(fraction);
-                }*/
+        result.add(fin);
 
     });
-
+    if (fraction != 0){
+        result.add(fraction);
+    }
     return result.reverse();
 }
 
@@ -188,9 +186,9 @@ let reversedList = list.reverse();
 reversedList.print();*/
 
 
-let a = new LinkedList(3211).reverse();
+let a = new LinkedList(611).reverse();
 a.print();
-let b = new LinkedList(1334).reverse();
+let b = new LinkedList(13).reverse();
 b.print();
 
 let c = sum(a, b);
