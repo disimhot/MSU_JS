@@ -144,6 +144,18 @@ function sum(left, right) {
         stack.push(element);
         leftCursor = leftCursor.next;
         rightCursor = rightCursor.next;
+        if (rightCursor == null){
+            while(leftCursor != null){
+
+                let i = parseInt(leftCursor.value);
+                console.log("left +     " + i);
+                stack.push(i);
+                leftCursor = leftCursor.next;
+            }
+            break;
+        }
+
+
     }while(leftCursor != null || rightCursor != null);
 
     stack.forEach(function (value){
@@ -186,9 +198,9 @@ let reversedList = list.reverse();
 reversedList.print();*/
 
 
-let a = new LinkedList(611).reverse();
+let a = new LinkedList(1234).reverse();
 a.print();
-let b = new LinkedList(13).reverse();
+let b = new LinkedList(23).reverse();
 b.print();
 
 let c = sum(a, b);
