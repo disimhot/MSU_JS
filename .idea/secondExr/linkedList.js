@@ -1,5 +1,5 @@
 //elena-efimova
-//Хранение элемента и указание на следующий
+//Односвязный список
 
 function Node(value) {
     this.value = value;

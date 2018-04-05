@@ -21,11 +21,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="linkedList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="linkedList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/secondExr/linkedList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1967">
-              <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popularWord.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/thirdExr/popularWord.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -60,6 +72,7 @@
         <option value="$PROJECT_DIR$/.idea/firstExr/binary_to_dec.js" />
         <option value="$PROJECT_DIR$/.idea/thirdExr/repeatedSubstring.js" />
         <option value="$PROJECT_DIR$/.idea/secondExr/linkedList.js" />
+        <option value="$PROJECT_DIR$/.idea/thirdExr/popularWord.js" />
       </list>
     </option>
   </component>
@@ -80,7 +93,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="131" />
     <option name="y" value="65" />
     <option name="width" value="1632" />
@@ -283,15 +296,15 @@
       <workItem from="1522335534793" duration="9613000" />
       <workItem from="1522664165019" duration="38683000" />
       <workItem from="1522846332282" duration="6873000" />
-      <workItem from="1522913933680" duration="4565000" />
+      <workItem from="1522913933680" duration="4911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88462000" />
+    <option name="totallyTimeSpent" value="88808000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -621,8 +634,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/secondExr/linkedList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1967">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/thirdExr/popularWord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
