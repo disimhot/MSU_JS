@@ -114,22 +114,15 @@ function LinkedList(number) {
         return linkedList;
     }
 }
+function pair(left, right) {
 
-
+    if(left != null){this.left = left.value;}
+    if(right != null){this.right = right.value;}
+    this.sum = function() {return parseInt(this.right) + parseInt(this.left);}
+}
 
 
 function sum(left, right) {
-
-    function pair(left, right) {
-
-        if(left == null){this.left = 0;
-        }  else{this.left = left.value;}
-
-        if(right == null){this.right = 0;
-        }  else{this.right = right.value;}
-
-        this.sum = function() {return parseInt(this.right) + parseInt(this.left);}
-    }
 
     let result = new LinkedList();
     let fraction = 0;
@@ -138,6 +131,7 @@ function sum(left, right) {
     let rightCursor = right.root;
 
     let stack = [];
+    let temp =[];
 
     do{
         let element = new pair(leftCursor, rightCursor);
@@ -146,16 +140,15 @@ function sum(left, right) {
         rightCursor = rightCursor.next;
         if (rightCursor == null){
             while(leftCursor != null){
-
-                let i = parseInt(leftCursor.value);
-                console.log("left +     " + i);
-                stack.push(i);
+                temp.push(leftCursor.value);
                 leftCursor = leftCursor.next;
-            }
-            break;
-        }
+            } break;}
+        if (leftCursor == null){
+            while(rightCursor != null){
+                temp.push(rightCursor.value);
+                rightCursor = rightCursor.next;
 
-
+            } break;}
     }while(leftCursor != null || rightCursor != null);
 
     stack.forEach(function (value){
@@ -170,18 +163,23 @@ function sum(left, right) {
             fin = element;
             fraction = 0;
         }
-
         result.add(fin);
 
     });
-    if (fraction != 0){
+    if (fraction != 0 && temp.length == 0){
         result.add(fraction);
+    }else {
+        temp.forEach(function (t) {
+            result.add((parseInt(t) + fraction)%10);
+            fraction = parseInt((parseInt(t) + fraction)/10);
+        })
     }
+
     return result.reverse();
 }
 
 
-/*let list = new LinkedList(12345678);
+let list = new LinkedList(12345678);
 
 list.add(5);
 list.add(100);
@@ -195,12 +193,12 @@ list.delete(90);
 list.print();
 
 let reversedList = list.reverse();
-reversedList.print();*/
+reversedList.print();
 
 
-let a = new LinkedList(1234).reverse();
+let a = new LinkedList(4591).reverse();
 a.print();
-let b = new LinkedList(23).reverse();
+let b = new LinkedList(5434146).reverse();
 b.print();
 
 let c = sum(a, b);
