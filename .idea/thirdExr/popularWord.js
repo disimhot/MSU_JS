@@ -9,6 +9,8 @@ function getPopularWord(text){
     let arr = text.split(' ');
     let stack = [];
     let repeatedWords = [];
+    var k = 1;
+    let res;
     arr.forEach(function(item){
         if(item != ''){
             let element = new Word(item);
@@ -17,10 +19,15 @@ function getPopularWord(text){
      stack.forEach(function(value){for(var i = 0; i < stack.length - 1; i++) {
         if(value.word == stack[i].word){repeatedWords.push(value.word);}
      }})
-    console.log(repeatedWords);
-     repeatedWords.forEach(function (value, index) {
 
-     })
+    for(var i = 0; i<repeatedWords.length; i++){
+         var n = 0;
+        for(var j = 0; j<repeatedWords.length; j++){
+            if(repeatedWords[i]==repeatedWords[j]) n++;
+        }
+        if(n > k){k = n; res = i;}
+    }
+    console.log(repeatedWords[res]);
 
 
 }
