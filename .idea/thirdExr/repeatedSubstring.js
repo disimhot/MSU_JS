@@ -7,11 +7,9 @@ function getMaxCountRepeats(string) {
         let repeat = '';
         let k;
         for(i= 0; i < string.length; i++){
-
             repeat += string[i];
             let array = string.split(repeat);
             k = array.length-1;
-
             if (array.every(function(value){return value == '';})){
                 console.log(k);
                 return;
